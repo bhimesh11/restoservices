@@ -10,7 +10,7 @@ import com.resto.restaurentListing.entity.Restaurent;
 public class RestaurentMapper {
 
 	
-	public Restaurent mapRestaurentDTOtoRestaurent(RestaurentDTO dto){
+	public static Restaurent mapRestaurentDTOtoRestaurent(RestaurentDTO dto){
 		// Create a new Restaurent entity object.
 				Restaurent restaurent = new Restaurent();
 
@@ -28,7 +28,7 @@ public class RestaurentMapper {
 				return restaurent;
 	}
 	
-	public RestaurentDTO mapRestaurenttoRestaurentDTO(Restaurent restaurent) {
+	public static RestaurentDTO mapRestaurenttoRestaurentDTO(Restaurent restaurent) {
 RestaurentDTO restaurentDTO = new RestaurentDTO();
 		
 		// Copy data from the entity to the DTO.
