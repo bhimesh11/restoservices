@@ -1,22 +1,27 @@
-package com.resto.foodOrdering;
+package com.resto.OrderService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class FoodOrderingApplication {
+public class OrderServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodOrderingApplication.class, args);
+		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 	
 	@Bean
 	@LoadBalanced
-	public RestTemplate getRestTemplate()
-	{
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
 

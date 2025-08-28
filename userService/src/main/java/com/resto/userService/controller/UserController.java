@@ -20,42 +20,34 @@ import java.util.*;
 @AllArgsConstructor
 @RequestMapping(path = "/api/users")
 public class UserController {
-	
+
 	private UserService userService;
-	
-	
+
 	@PostMapping("/addUser")
-	public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO)
-	{
+	public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
 		UserDTO dto = userService.addUser(userDTO);
-		return new ResponseEntity<>(dto,HttpStatus.CREATED);
+		return new ResponseEntity<>(dto, HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/fetchUser/{id}")
-	public  ResponseEntity<UserDTO> fetchUserById(@PathVariable int id)
-	{
+	public ResponseEntity<UserDTO> fetchUserById(@PathVariable int id) {
 		UserDTO dto = userService.fetchUserById(id);
-		if(dto!=null)
-		{
-			return new ResponseEntity<>(dto,HttpStatus.OK);
+		if (dto != null) {
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
 		}
-		else {
-			return new ResponseEntity<>(dto,HttpStatus.NOT_FOUND);
-		}
-	
+
 	}
 
 	@GetMapping("/fetchUser")
-	public  ResponseEntity<List<UserDTO>> fetchUsers()
-	{
+	public ResponseEntity<List<UserDTO>> fetchUsers() {
 		List<UserDTO> dto = userService.fetchUser();
-		
-		if(!dto.isEmpty())
-		{
-			return new ResponseEntity<>(dto,HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<>(dto,HttpStatus.NOT_FOUND);
+
+		if (!dto.isEmpty()) {
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
 		}
 	}
 }

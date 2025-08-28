@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FoodCatalougePage {
 
-	private List<FoodItem> foodItemList;
-	private restaurentDTO restaurentDTO;
+	private List<FoodItem> FoodItemList;
+	private restaurentDTO Restaurent;
 }
